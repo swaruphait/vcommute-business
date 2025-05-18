@@ -65,11 +65,17 @@ public class MobileCommuteServiceImpl implements MobileCommuteService {
                 header.setStartTime(LocalTime.now());
                 header.setStartLocation(commuteData.getStartLocation());
                 header.setStartLocationArea(commuteData.getStartLocationArea());
+                header.setSuperCompanyId(userData.get().getSuperCompanyId());
+                header.setCompanyId(userData.get().getCompanyId());
                 header.setStartLat(commuteData.getStartLat());
                 header.setStartLong(commuteData.getStartLong());
                 header.setCompanyId(commuteData.getCompanyId());
                 header.setSuperCompanyId(commuteData.getSuperCompanyId());
                 header.setIntervelStop(commuteData.isIntervelStop());
+                header.setTotalActualPrice(0.0);
+                header.setTotalEstimatePrice(0.0);
+                header.setTotalDistance(0.0);
+                header.setTotalTime(0);
                 header.setMultiCommute(commuteData.isMultiCommute());
                 Optional<City> city = cityRepository.findByCity(commuteData.getCityName());
                 if (city.isPresent()) {
